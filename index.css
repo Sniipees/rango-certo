@@ -1,0 +1,36 @@
+/* Safe area support for mobile devices */
+:root {
+  --safe-area-inset-top: env(safe-area-inset-top, 0px);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none; /* Better app feel */
+  background-color: #f8f6f6;
+  overscroll-behavior-y: none; /* Disable pull-to-refresh */
+}
+
+/* Adjust main container for full screen on mobile */
+#root {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+.pwa-container {
+  padding-top: var(--safe-area-inset-top);
+  padding-bottom: var(--safe-area-inset-bottom);
+}
+
+/* Hide scrollbars but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
